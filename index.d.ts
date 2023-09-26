@@ -15,10 +15,14 @@ export interface ILCSResult {
  */
 export function LCS<T>(buffer1: T[], buffer2: T[], timeout?: number): ILCSResult;
 
-export interface ICommResult<T> {
+export interface IDiff<T> {
   buffer1: T[];
   buffer2: T[];
 }
+export interface ICommon<T> {
+  common: T[]
+}
+export type ICommResult<T> = IDiff<T> | ICommon<T>
 
 /**
  * We apply the LCS to build a 'comm'-style picture of the
