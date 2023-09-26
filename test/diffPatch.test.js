@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import * as Diff3 from '../index.mjs';
+import { testTimeout } from './timeout.js';
 
 const a = ['AA', 'a', 'b', 'c', 'ZZ', 'new', '00', 'a', 'a', 'M', '99'];
 const b = ['AA', 'a', 'd', 'c', 'ZZ', '11', 'M', 'z', 'z', '99'];
@@ -37,6 +38,8 @@ test('diffPatch', async t => {
     assert.equal(a0, a);
     assert.equal(b0, b);
   });
+  
+  testTimeout(t, timeout => Diff3.diffPatch(a, b, timeout));
 });
 
 

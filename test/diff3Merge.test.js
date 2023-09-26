@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import * as Diff3 from '../index.mjs';
+import { testTimeout } from './timeout.js';
 
 test('diff3Merge', async t => {
 
@@ -152,4 +153,6 @@ description: "description"`;
     assert.deepEqual(result[0].conflict.a, ['title: "title"', 'description: "description changed"']);
     assert.deepEqual(result[0].conflict.b, ['title: "title changed"', 'description: "description"']);
   });
+  
+  testTimeout(t, timeout => Diff3.diff3Merge(['a'], ['o'], ['b'], undefined, timeout));
 });

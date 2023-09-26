@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import * as Diff3 from '../index.mjs';
+import { testTimeout } from './timeout.js';
 
 test('LCS', async t => {
 
@@ -30,4 +31,5 @@ test('LCS', async t => {
     assert.deepEqual(result.chain.chain.chain.chain.chain.chain, NULLRESULT);
   });
 
+  testTimeout(t, timeout => Diff3.LCS(['a'], ['b'], timeout));
 });

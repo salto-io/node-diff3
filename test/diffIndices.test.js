@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import * as Diff3 from '../index.mjs';
+import { testTimeout } from './timeout.js';
 
 test('diffIndices', async t => {
 
@@ -24,5 +25,7 @@ test('diffIndices', async t => {
     assert.deepEqual(result[2].buffer2, [7, 2]);
     assert.deepEqual(result[2].buffer2Content, ['z', 'z']);
   });
+  
+  testTimeout(t, timeout => Diff3.diffIndices(['a'], ['b'], timeout));
 
 });

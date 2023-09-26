@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import * as Diff3 from '../index.mjs';
+import { testTimeout } from './timeout.js';
 
 test('diffComm', async t => {
 
@@ -38,4 +39,5 @@ test('diffComm', async t => {
     assert.deepEqual(result[6].buffer2, undefined);
   });
 
+  testTimeout(t, timeout => Diff3.diffComm(['a'], ['b'], timeout));
 });
