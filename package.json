@@ -1,8 +1,8 @@
 {
-  "name": "node-diff3",
+  "name": "@salto-io/node-diff3",
   "version": "3.1.0-salto.1",
   "license": "MIT",
-  "repository": "github:bhousel/node-diff3",
+  "repository": "github:salto-io/node-diff3",
   "description": "A node.js module for text diffing and three-way-merge.",
   "contributors": [
     "Bryan Housel <bhousel@gmail.com> (https://github.com/bhousel)"
